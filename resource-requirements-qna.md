@@ -43,7 +43,7 @@ resources:
 
 In summary, `4Gi` specifies that the pod is requesting 4 GiB of memory from the Kubernetes cluster.
 
-🤔❓**Question**: "Note that CPU values can be fractional (e.g., 0.1 or 100m, where "m" stands for milli). One CPU represents one vCPU, making it equivalent to 1 AWS vCPU, 1 GCP core, 1 Azure core, or 1 hyper-thread on other platforms." What does that mean?
+❓🤔 **Question**: "Note that CPU values can be fractional (e.g., 0.1 or 100m, where "m" stands for milli). One CPU represents one vCPU, making it equivalent to 1 AWS vCPU, 1 GCP core, 1 Azure core, or 1 hyper-thread on other platforms." What does that mean?
 
 ✅ **Answer**:
 This statement explains how CPU resources are allocated and represented in Kubernetes and how the CPU units relate to cloud provider resources.
