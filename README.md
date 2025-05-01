@@ -5,7 +5,7 @@ This repository contains my personal notes while learning and working with Kuber
 ## 🎯 Why I Made This
 I'm passionate about cloud-native technologies and am currently preparing for  [CKAD](https://www.cncf.io/certification/ckad/) certification. These notes help me and others consolidate understanding of Kubernetes core concepts.
 
-## 📘 Topics Covered
+## 📘 Topics Covered (will be)
 - Pods
 - ReplicaSets
 - Deployments
