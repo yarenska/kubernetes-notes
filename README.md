@@ -1,4 +1,4 @@
-# Kubernetes Notes
+## Kubernetes Notes
 
 This repository contains my personal notes while learning and working with Kubernetes.
 
