@@ -81,3 +81,47 @@ docker ps
 ```code
 docker ps -a
 ```
+
+#### Volume Commands
+
+- Creating a volume
+```code
+docker volume create <volume-name>
+```
+
+- Removing a volume
+```code
+docker volume rm <volume-name>
+```
+
+- List volumes
+```code
+docker volume ls
+```
+
+#### Info & Debugging Commands
+
+- Showing container logs
+```code
+docker logs <container-id/name>
+```
+
+- Inspecting a container
+```code
+docker inspect <container-id/name>
+```
+
+- View running processes inside container
+```code
+docker top <container-id/name>
+```
+
+- Executing command inside container
+```code
+docker exec -it <container-id/name> <command>
+```
+
+- Attaching to container
+```code
+docker attach <container-id/name>
+```
