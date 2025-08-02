@@ -117,3 +117,13 @@ First, the service will find the pod that matches via selector given.
 Since the service is a type of load balancer, it will randomly pick a replica of a pod to send the request to.
 And it will see the targetPort defined in yaml file.
 
+
+#### 2. Headless Service
+
+Properties:
+- Client wants to communicate with 1 specific Pod directly
+- Pods want talk directly with specific Pod
+- So, not randomly selected
+- Use Case: Stateful applications, like databases
+- Pod replicas are not identical
+- Only master is allowed to write to DB
