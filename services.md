@@ -74,3 +74,46 @@ Now question may arise:
 1. How does Service know which Pod to forward to requests to?
 2. In the pod, where to forward to requests to?
 
+Answers:  
+The first question's answer is: "selector"
+- Pods are identified via selectors.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: microservice-one-service
+spec:
+  selector:
+    app: microservice-one
+    .
+    .
+    .
+```
+
+- We specify the selector as key value pairs that identifies the pods to be matched. As you can see above,
+we have defined the pod with the selector having the label "microservice-one". In that case, service will see the pod 
+and it will forward to request to.  
+
+
+The second question is if a Pod has multiple ports open, how does Service know which port to forward the request to?
+Answer: This is defined target attribute.  
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: microservice-one-service
+spec:
+  selector:
+    app: microservice-one
+  ports:
+    - protocol: TCP
+      port: 3200
+      targetPort: 3000
+```
+
+First, the service will find the pod that matches via selector given. 
+Since the service is a type of load balancer, it will randomly pick a replica of a pod to send the request to.
+And it will see the targetPort defined in yaml file.
+
