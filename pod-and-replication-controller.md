@@ -2,7 +2,7 @@
 
 Pod
 
-```.yaml
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -16,10 +16,9 @@ spec:
     image: nginx
 ```
 
-
 ReplicationController (rc-definition.yaml)
 
-```replication-controller.yaml
+```yaml
 apiVersion: v1
 kind: ReplicationController
 metadata:
