@@ -136,3 +136,60 @@ when a client performs DNS lookup for a service, the DNS server returns single I
 And this will be the service's ClusterIP adress (internal). If you set the ClusterIP "None", it returns the Pod IP address
 instead.
 
+
+#### 3 Service Type Attributes
+1. Cluster IP
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+    name: my-service
+spec:
+    type: ClusterIP
+```
+
+* Default, type is not needed
+* Internal Service
+
+2. NodePort
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+    name: my-service
+spec: 
+    type: NodePort
+```
+
+NodePort basically creates a Service, that is accessible on a static port on each worker node in the cluster.
+To compare it with the ClusterIP, ClusterIP is only accessible within the cluster. No external traffic can 
+directly access to the Service.  
+NodePort service however, makes the external traffic accessible on static, fixed port on each worker node.
+So in this case, instead of Ingress, the browser request will send the request directly to the worker node, 
+at the port that the Service definition defines as follows:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-service-nodeport
+spec:
+  type: NodePort
+  selector:
+    app: microservice-one
+  ports:
+    - protocol: TCP
+      port: 3200
+      targetPort: 3000
+      nodePort: 30008
+```
+
+Here you can see 3 types of port:
+1. "port": It is the Service's (ClusterIP) port inside the worker Node.
+2. "targetPort": It is the port of the Pod that will be communicated with.
+3. "nodePort": It is the port of the Pod that the requests of the external requests will be redirected to.
+
+ClusterIP service is automatically created.
+NodePort range must be within 30000-32767.
