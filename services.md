@@ -2,6 +2,10 @@
 
 #### 1. Cluster IP
 * It is the default type of services. If you didnt define anything, the service gets this type automatically.
+* ClusterIP gives stable endpoints to Pods (because Pod IPs change, ephemeral).
+* A Service of type ClusterIP has a stable virtual IP. 
+* ClusterIP does not belong to a Pod — it’s a virtual IP that routes to one or more Pods behind it (using selectors). 
+* The Service keeps the same IP even if Pods restart.  
 
 Assuming we have a Deployment that has the definition of type:
 
