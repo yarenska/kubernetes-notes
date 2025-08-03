@@ -193,3 +193,28 @@ Here you can see 3 types of port:
 
 ClusterIP service is automatically created.
 NodePort range must be within 30000-32767.
+
+
+3. LoadBalancer
+
+The service becomes available externally through cloud providers LoadBalancer functionality.
+Here is the example definition of a LoadBalancer service type:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-service-loadbalancer
+spec:
+  type: LoadBalancer
+  selector:
+    app: microservice-one
+  ports:
+    - protocol: TCP
+      port: 3200
+      targetPort: 3000
+      nodePort: 30010
+```
+
+* LoadBalancer is an extension of NodePort Service.
+* NodePort Service is an extension of ClusterIP service.
