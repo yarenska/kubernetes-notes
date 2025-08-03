@@ -120,10 +120,19 @@ And it will see the targetPort defined in yaml file.
 
 #### 2. Headless Service
 
-Properties:
+**Properties:**
 - Client wants to communicate with 1 specific Pod directly
 - Pods want talk directly with specific Pod
 - So, not randomly selected
 - Use Case: Stateful applications, like databases
 - Pod replicas are not identical
 - Only master is allowed to write to DB
+
+**Question 1:** How can clients know Pod's IP addresses?  
+One option could be API call to Kubernetes API server. But it makes the API too tied to Kubernetes API
+It is inefficient.
+2nd option is Kubernetes allows clients to discover Pods IP adresses through DNS lookups. Usually, 
+when a client performs DNS lookup for a service, the DNS server returns single IP address which belongs to the service.
+And this will be the service's ClusterIP adress (internal). If you set the ClusterIP "None", it returns the Pod IP address
+instead.
+
