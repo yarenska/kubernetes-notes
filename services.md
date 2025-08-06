@@ -1,5 +1,8 @@
 ### Services 
 
+Services is an abstraction that defines a set of Pods and and policy by which to access them
+typically via stable IP address and DNS name.
+
 #### 1. Cluster IP
 * It is the default type of services. If you didnt define anything, the service gets this type automatically.
 * ClusterIP gives stable endpoints to Pods (because Pod IPs change, ephemeral).
